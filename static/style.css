@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body
+{
+    margin:0;
+     font-family: 'Roboto', sans-serif;
+}
+
+header
+{
+
+    min-height: 100px;
+    font-size: 40px;
+    text-align: center;
+    color:white;
+    background-color: #102338;
+}
+img
+{
+    height: 200px;
+    width: 200px;
+}
+#content
+{
+    background-color: blanchedalmond;
+    min-width: 85%;
+    min-height: 400px;
+}
+#center
+{
+ text-align: center;
+
+}
+
+nav
+{
+    min-width: 15%;
+    background-color: darkslategrey;
+    color:white;
+}
+#submit
+{
+   background-color: #3eb740;
+   color:white;
+   border-radius: 25px;
+
+}
+#prediction
+{
+ color:#3eb740;   
+}
+#sentence
+{
+    background-color: white;
+    color:black;
+    border-radius: 25px;
+}
