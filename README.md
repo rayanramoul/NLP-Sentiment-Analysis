@@ -1,5 +1,5 @@
  <div align="center">
-  <img src="https://github.com/raysr/Steven-knows/blob/master/static/robot.png?raw=true" alt="STEVEN"></img></div>
+  <img src="https://github.com/raysr/Steven-knows/blob/master/static/robot.png?raw=true" alt="STEVEN" style="height:250px;width:250px;"></img></div>
 
 # Steven Knows
 
