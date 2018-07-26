@@ -1,12 +1,13 @@
  <div align="center">
-  <img src="https://github.com/raysr/Steven-knows/blob/master/static/robot.png?raw=true" alt="STEVEN"></img>
+  <img src="https://github.com/raysr/Steven-knows/blob/master/static/robot.png?raw=true" alt="STEVEN"></img></div>
+
 # Steven Knows
 
 Steven is AI-powered platform for sentiment analysis in beta. Users are able to evaluate their sentences and improve the AI itself with their comments.
 
 ## Preview
  <div align="center">
-  <img src="https://github.com/raysr/Steven-knows/blob/master/static/screen.png?raw=true" alt="STEVEN"></img>
+  <img src="https://github.com/raysr/Steven-knows/blob/master/static/screen.png?raw=true" alt="STEVEN" style="border-style: dotted;border-color:##0a111c;"></img></div>
 
 ### Prerequisites
 
