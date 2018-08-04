@@ -51,8 +51,8 @@ def read(file):
     '''
 
 def evaluate(ent):
-    vect=pickle.load(open('modals/tfidf','rb'))
-    clf=pickle.load(open('modals/modal','rb'))
+    vect=pickle.load(open('tfidf','rb'))
+    clf=pickle.load(open('modal','rb'))
     x=vect.transform([ent])
     lor=clf.predict_proba(x)[0]
     if lor[0]>lor[1]:
