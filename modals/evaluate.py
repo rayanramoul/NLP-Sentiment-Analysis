@@ -1,10 +1,11 @@
 '''from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
-
+import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score,confusion_matrix
 from nltk import word_tokenize'''
 import pickle
+import os
 
 def read(file):
     r=open(file,'r',encoding="utf8")
@@ -29,16 +30,33 @@ def read(file):
     print('COUNT  :'+str(len(x)))
     r.close()
     learn(x,y)
+'''
+def learn(): # To Apply on new Documents
+    file=pd.read_table('../data/train.tsv')
+    file.loc[file['Sentiment'] == 0, 'Sentiment'] = 'negative'
+    file.loc[file['Sentiment'] == 1, 'Sentiment'] = 'somewhat negative'
+    file.loc[file['Sentiment'] == 2, 'Sentiment'] = 'neutral'
+    file.loc[file['Sentiment'] == 3, 'Sentiment'] = 'somewhat positive'
+    file.loc[file['Sentiment'] == 4, 'Sentiment'] = 'positive'
 
-'''def learn(entryx,entryy): # To Apply on new Documents
+    entr=pd.DataFrame(file,columns=['Phrase']).values.tolist()
+    sort=pd.DataFrame(file,columns=['Sentiment']).values.tolist()
     my_stopword_list = ['and','to','the','of']
+    entryx=[]
+    entryy=[]
+    for x in entr:
+        entryx.append(str(x[0]))
+    for x in sort:
+        entryy.append(str(x[0]))
+
+    print("X : "+str(entryx[0]))
+    print("Y : "+str(entryy[0]))
     vectorizer = TfidfVectorizer(stop_words=my_stopword_list)
-#    print('ENTRY X :'+str(entryx))
     X = vectorizer.fit_transform(entryx)
+    from sklearn.naive_bayes import MultinomialNB
     clf = MultinomialNB()
     X_train, X_test, y_train, y_test = train_test_split(X, entryy, test_size=0.33,shuffle=True )
 
-    print('to train with : \n0 :'+str(y_train.count(str(0)))+'\n1 :'+str(y_train.count(str(1))))
 #    print('Y_train :'+str(y_train))
     clf.fit(X_train, y_train)
     y_pred=clf.predict(X_test)
@@ -51,16 +69,8 @@ def read(file):
     '''
 
 def evaluate(ent):
-    vect=pickle.load(open('tfidf','rb'))
-    clf=pickle.load(open('modal','rb'))
+    vect=pickle.load(open(os.path.join('modals','tfidf'),'rb'))
+    clf=pickle.load(open(os.path.join('modals','modal'),'rb'))
     x=vect.transform([ent])
-    lor=clf.predict_proba(x)[0]
-    if lor[0]>lor[1]:
-        bx=g = float("{0:.4f}".format(lor[0]))
-        return 'Negative at '+str(bx*100)+'%'
-    else:
-        bx=g = float("{0:.4f}".format(lor[1]))
-        return 'Positive at '+str(bx*100)+'%'
-
-
-print(str(evaluate('this is cool and awesome.')))
+    lor=clf.predict(x)  
+    return str(lor[0])

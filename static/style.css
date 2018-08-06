@@ -5,7 +5,21 @@ body
      font-family: 'Roboto', sans-serif;
 }
 
-header
+.container-fluid
+{
+    min-width: 40%;
+}
+#ask
+{
+    text-align: center;
+    align-content: center;
+
+}
+row
+{
+    min-width: 100%;
+}
+#header
 {
 
     min-height: 100px;
@@ -13,6 +27,17 @@ header
     text-align: center;
     color:white;
     background-color: #102338;
+}
+.col-lg-12
+{
+        text-align: center;
+        align-content: center;
+}
+
+#verify
+{
+  width: 35%;
+  margin: 0 auto;  
 }
 img
 {
@@ -37,20 +62,12 @@ nav
     background-color: darkslategrey;
     color:white;
 }
-#submit
-{
-   background-color: #3eb740;
-   color:white;
-   border-radius: 25px;
 
-}
 #prediction
 {
  color:#3eb740;   
 }
-#sentence
+#centered
 {
-    background-color: white;
-    color:black;
-    border-radius: 25px;
+    text-align:center;
 }
